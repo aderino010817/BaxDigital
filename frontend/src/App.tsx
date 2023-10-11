@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import WebServices from "./pages/WebServices";
+import AboutUs from "./pages/AboutUs";
 // import { Routes }  from "react-router-dom";
 
 // function IsLogin() {
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/WebServices" element={<WebServices />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
       </Routes>
     </>
   );
