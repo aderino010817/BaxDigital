@@ -9,7 +9,13 @@ export default function AboutUs() {
     <>
       <Box bgColor={'#f5f5fa'} minHeight="100vh">
         <Navbar />
-        <Center py={12} px={10}>
+        <Center py={{
+            base: '12',
+            lg: '12'
+        }} px={{
+            base: '10',
+            lg: '10'
+        }}>
           <Flex flexDirection="column" alignItems="center" maxW="800px" w="100%">
             <Text fontSize="4xl" fontWeight="bold" color="teal.500" mb={4}>
               Selamat Datang di BAX Digital
@@ -24,13 +30,16 @@ export default function AboutUs() {
                     lg: 'flex'
                 }}>
                     <Box flex="1" textAlign="center">
-                        <Image mt={5} src={JasaPembuatanWebsiteFullstackdanWordpress} alt="Anggota Tim BAX Digital 1" mb={4} borderRadius="md" />
+                        <Image p={{
+                            base: 'none',
+                            lg: 'none'
+                        }} mt={5} src={JasaPembuatanWebsiteFullstackdanWordpress} alt="Anggota Tim BAX Digital 1" mb={4} borderRadius="md" />
                         
                     </Box>
                     <Box flex="1" textAlign="center">
-                        <Heading fontSize={{
-                            base: '30px',
-                            lg: '26px'
+                        <Heading textDecoration={'underline'} fontSize={{
+                            base: '28px',
+                            lg: '24px'
                         }} mt={{
                             base: '1',
                             lg: '3'
@@ -42,19 +51,36 @@ export default function AboutUs() {
                         </Text>
                     </Box>
                 </Box>
-                <Flex justifyContent="space-between" w="100%" mb={8} border={'1px solid gray'} p='3'>
-                    <Box flex="1" textAlign="center">
-                        <Image src={KelasFacebookExpertise} alt="Anggota Tim BAX Digital 2" mb={4} borderRadius="md" mt='-10'/>
-                    </Box>
-                    <Box flex="1" textAlign="center">
-                        <Heading mt={'2.5'} fontWeight="bold" color="teal.500" mb={2}>
-                            Kelas <br />Facebook Expertise
-                        </Heading>
-                        <Text fontSize="md" color="gray.500">
-                            Desainer Kreatif
-                        </Text>
-                    </Box>
-                </Flex>
+                <Box justifyContent="space-between" w="100%" mb={8} border={'1px solid gray'} p='5'
+    display={{
+        base: 'grid',
+        lg: 'flex'
+    }}>
+    <Box flex="1" textAlign="center">
+        <Image p={{
+            base: 'none',
+            lg: 'none'
+        }}
+        src={KelasFacebookExpertise} alt="Anggota Tim BAX Digital 2" mb={{
+            base: 'none',
+            lg: '4'
+        }} borderRadius="md" mt='-10' />
+    </Box>
+    <Box flex="1" textAlign="center">
+        <Heading textDecorationLine={'underline'} fontSize={{
+            base: '28px',
+            lg: '24px'
+        }} mt={{
+            base: '1',
+            lg: '3'
+        }} fontWeight="bold" color="teal.500" mb={2}>
+            Kelas : Facebook Expertise
+        </Heading>
+        <Text mt={4} fontSize="md" color="gray.700">
+            Optimalkan bisnis Anda di Facebook dengan Facebook Expertise! Dari pemula hingga mahir, kami membimbing Anda: dari personal ads hingga pengelolaan Business Manager, kreasi konten memukau, riset produk, dan menguasai alat serta otomasi. Meraih kesuksesan digital dengan kami! 🚀
+        </Text>
+    </Box>
+</Box>
             </Box>
             <Text fontSize="xl" fontWeight="bold" color="teal.500" mb={4}>
               Keahlian Kami
