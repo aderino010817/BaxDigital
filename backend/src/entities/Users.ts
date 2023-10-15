@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToMany, JoinTable } from "typeorm"
+import { Follow } from "./Follows"
 
 @Entity({ name: "users" })
 export class User {
@@ -14,6 +15,14 @@ export class User {
     
     @Column()
     email: string
+
+    @ManyToMany(() => Follow, (follow) => follow.following)
+    @JoinTable()
+    following: Follow[];
+
+    @ManyToMany(() => Follow, (follow) => follow.followed)
+    @JoinTable()
+    followers: Follow[];
     
     @CreateDateColumn()
     created_at: Date; // Creation date
