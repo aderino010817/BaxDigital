@@ -24,7 +24,7 @@ import logobax from '../assets/Image/BaxDigital.png'
 
 export function NavLink() {
     return (
-      <Center>
+      <Center textAlign={'center'}>
         <Flex mt={1} flexDirection={{ base: 'column', lg: 'row' }}>
           <Box
             mr={3}
