@@ -52,7 +52,7 @@ export function NavLink() {
             py={1}
             _hover={{ borderRadius: '13px',  borderRight: '1px solid black', borderLeft: '1px solid black', boxShadow: '1px 1px 1px 1px' }}
           >
-            <Link to={'#'}>
+            <Link to={'/KelasDigital'}>
               <Text>Kelas Digital</Text>
             </Link>
           </Box>
@@ -72,7 +72,7 @@ export function NavLink() {
             py={1}
             _hover={{ borderRadius: '13px',  borderRight: '1px solid black', borderLeft: '1px solid black', boxShadow: '1px 1px 1px 1px' }}
           >
-            <Link to={'#'}>
+            <Link to={'/ContactUs'}>
               <Text>Contact Us</Text>
             </Link>
           </Box>

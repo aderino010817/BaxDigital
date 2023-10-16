@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import WebServices from "./pages/WebServices";
 import AboutUs from "./pages/AboutUs";
+import KelasDigital from "./pages/KelasDigital";
+import ContactUs from "./pages/ContactUs";
 // import { Routes }  from "react-router-dom";
 
 // function IsLogin() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/WebServices" element={<WebServices />} />
         <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/KelasDigital" element={<KelasDigital />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </>
   );
