@@ -10,13 +10,13 @@ import ContactUs from "./pages/ContactUs";
 //   if (!localStorage.token) {
 //     return <Navigate to={"/"}/>
 //   } else {
-//     return <Outlet/>  
+//     return <Outlet/>
 //   }
 // }
 
 // function IsNotLogin() {
 //   if (localStorage.token) {
-//     return <Navigate to={"/"}/> 
+//     return <Navigate to={"/"}/>
 //   } else {
 //     return <Outlet/>
 //   }
@@ -28,8 +28,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/WebServices" element={<WebServices />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/KelasDigital" element={<KelasDigital />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
     </>
