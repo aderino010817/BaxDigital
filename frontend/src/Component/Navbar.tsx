@@ -99,10 +99,19 @@ export default function Navbar() {
           <HStack spacing={13} alignItems={'center'}>
             <Center>
                 <Box ml={3} px={2} py={1} mr={5}>
-                <Image src={logobax} bgColor={'white'} maxWidth={'150px'} borderRadius={'13px'} />
+                <Image src={logobax} bgColor={'white'} maxWidth={{
+                  base: '110px',
+                  lg: '150px'
+                }} borderRadius={{
+                  base: '10px',
+                  lg: '12px'
+                }} />
                 </Box>
             </Center>
-            <HStack as={'nav'} spacing={4} display={{ base: 'none', lg: 'flex' }}>
+            <HStack as={'nav'} spacing={{
+              base: '2',
+              lg: '4'
+            }} display={{ base: 'none', lg: 'flex' }}>
               <NavLink />
             </HStack>
           </HStack>
