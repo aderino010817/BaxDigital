@@ -9,7 +9,10 @@ export default function AboutUs() {
     <>
       <Box bgColor={'#f5f5fa'} minHeight="100vh">
         <Navbar />
-        <Center py={{
+        <Center transform={{
+          translatex: '50%'
+        }}
+        py={{
             base: '12',
             lg: '12'
         }} px={{
