@@ -113,24 +113,24 @@ export default function Navbar() {
                 rounded={'full'}
                 variant={'link'}
                 cursor={'pointer'}
-                minW={0}
                 _hover={{
                   border: 'gray',
                   borderRadius: '10px',
                   BoxShadow: '1px 1px 5px 1px gray'
-                }}>
+                }}
+                >
                 <Button
+                
               variant={'solid'}
               colorScheme={'teal'}
-              size={'lg'}
-              mr={4}
-              ml={4}
+              size={'sm'}
               _hover={{
                 border: 'gray',
                 borderRadius: '10px',
                 BoxShadow: '1px 1px 5px 1px gray'
               }}
               leftIcon={<LiaCaretSquareDownSolid />}
+              
               >
               AKSES
             </Button>
