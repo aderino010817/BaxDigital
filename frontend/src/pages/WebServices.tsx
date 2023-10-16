@@ -206,14 +206,29 @@ export default function WebServices() {
                 </Button>
             </Link>
         </Center>
-        <Box m={20} p={20} border={'1px solid gray'}>
+        <Box m={20} p={{
+            base: '2',
+            lg: '15'
+        }} border={'1px solid gray'}>
             <Box>
                 <Flex flexDirection={'column'}>
                     <Box fontStyle={'oblique'}>
-                        <Heading ml={10}> CATATAN : </Heading>
+                        <Heading ml={{
+                            base: '2',
+                            lg: '10'
+                        }} fontSize={{
+                            base: '18px',
+                            lg: '24px'
+                        }}> CATATAN : </Heading>
                     </Box>
                 </Flex>
-                <List spacing={2} pl={4} mt={3} mb={3} fontSize={'16px'}>
+                <List spacing={2} pl={{
+                    base: '1',
+                    lg: '4'
+                }} mt={3} mb={3} fontSize={{
+                    base: '12px',
+                    lg: '16px'
+                }}>
                     <ListItem>
                         <CheckIcon color="green.500" /> Menambah Halaman dikenakan Biaya Rp 99.000,-/halaman
                     </ListItem>
