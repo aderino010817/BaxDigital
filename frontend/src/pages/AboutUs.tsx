@@ -19,11 +19,17 @@ export default function AboutUs() {
             base: '10',
             lg: '10'
         }}>
-          <Flex flexDirection="column" alignItems="center" maxW="800px" w="100%">
-            <Text fontSize="4xl" fontWeight="bold" color="teal.500" mb={4}>
+          <Flex flexDirection="column" alignItems="center" maxW="800px" w="100%" textAlign={'center'}>
+            <Text fontSize={{
+              base: '3xl',
+              lg: '4xl'
+            }} fontWeight="bold" color="teal.500" mb={4}>
               Selamat Datang di BAX Digital
             </Text>
-            <Text fontSize="lg" textAlign="center" mb={8}>
+            <Text fontSize={{
+              base: 'md',
+              lg: 'lg'
+            }} textAlign="center" mb={8}>
               Di BAX Digital, kami adalah pelopor inovasi digital. Setiap proyek adalah kesempatan untuk menciptakan keajaiban. Sebagai seniman dan insinyur, kami membawa visi Anda menjadi kenyataan melalui kombinasi unik antara kreativitas dan teknologi. Pengalaman digital kami tidak hanya memikat mata, tetapi juga meningkatkan bisnis Anda ke level berikutnya.
             </Text>
             <Box>
@@ -41,7 +47,7 @@ export default function AboutUs() {
                     </Box>
                     <Box flex="1" textAlign="center">
                         <Heading textDecoration={'underline'} fontSize={{
-                            base: '28px',
+                            base: '20px',
                             lg: '24px'
                         }} mt={{
                             base: '1',
@@ -71,13 +77,13 @@ export default function AboutUs() {
     </Box>
     <Box flex="1" textAlign="center">
         <Heading textDecorationLine={'underline'} fontSize={{
-            base: '28px',
+            base: '20px',
             lg: '24px'
         }} mt={{
             base: '1',
             lg: '3'
         }} fontWeight="bold" color="teal.500" mb={2}>
-            Kelas : Facebook Expertise
+            Kelas :<br/> Facebook Expertise
         </Heading>
         <Text mt={4} fontSize="md" color="gray.700">
             Optimalkan bisnis Anda di Facebook dengan Facebook Expertise! Dari pemula hingga mahir, kami membimbing Anda: dari personal ads hingga pengelolaan Business Manager, kreasi konten memukau, riset produk, dan menguasai alat serta otomasi. Meraih kesuksesan digital dengan kami! 🚀
@@ -85,16 +91,28 @@ export default function AboutUs() {
     </Box>
 </Box>
             </Box>
-            <Text fontSize="xl" fontWeight="bold" color="teal.500" mb={4}>
+            <Text fontSize={{
+              base: '2xl',
+              lg: '3xl'
+            }} fontWeight="bold" color="teal.500" mb={4}>
               Keahlian Kami
             </Text>
-            <Text fontSize="lg" textAlign="center" mb={8}>
+            <Text fontSize={{
+              base: 'md',
+              lg: 'lg'
+            }} textAlign="center" mb={9}>
               Di BAX Digital, kami menciptakan desain yang memukau dan fungsionalitas yang cerdas. Dari pembuatan website yang responsif hingga kampanye digital marketing yang sukses, kami memberdayakan bisnis Anda untuk bersinar di dunia digital. Kelas pembelajaran kami tentang Facebook Ads dan Facebook Automasi bukan hanya kursus biasa, tetapi sebuah petualangan mendalam ke dalam strategi pemasaran yang efektif.
             </Text>
-            <Text fontSize="xl" fontWeight="bold" color="teal.500" mb={4}>
+            <Text fontSize={{
+              base: '2xl',
+              lg: '3xl'
+            }} fontWeight="bold" color="teal.500" mb={4}>
               Bergabunglah Bersama Kami
             </Text>
-            <Text fontSize="lg" textAlign="center" mb={8}>
+            <Text fontSize={{
+              base: 'md',
+              lg: 'lg'
+            }} textAlign="center" mb={9}>
               Kami mengundang Anda untuk bergabung dalam perjalanan kami menuju keunggulan digital. Bersama-sama, kita akan menjelajahi potensi tak terbatas teknologi dan kreativitas. Apakah Anda mencari solusi web yang inovatif atau ingin menguasai seni pemasaran digital, BAX Digital adalah rumah bagi visi Anda.
             </Text>
           </Flex>
