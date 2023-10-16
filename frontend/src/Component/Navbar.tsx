@@ -19,6 +19,7 @@ import {
 import { LiaCaretSquareDownSolid } from "react-icons/lia";
 import logobax from '../assets/Image/BaxDigital.png';
 import NavLink from '../assets/NavLink';
+import { Link } from 'react-router-dom';
 
 
 
@@ -90,11 +91,13 @@ export default function Navbar() {
                     color: 'white',
                     bg: 'gray'
                 }}>Register</MenuItem>
+                <Link to={'/Admin'}>
                 <MenuItem
                 _hover={{
                     color: 'white',
                     bg: 'gray'
                 }}>Login</MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           </Flex>

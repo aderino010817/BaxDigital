@@ -7,7 +7,7 @@ export default function AdminDashboard() {
   // Dummy data for member list (replace this with actual data)
   const memberList = [
     { id: 1, name: "John Doe", status: "Active", joinedDate: "2023-01-15" },
-    { id: 2, name: "Alice Johnson", status: "Active", joinedDate: "2023-03-20" },
+    { id: 2, name: "Alice Johnson", status: "Not-Active", joinedDate: "2023-03-20" },
     // Add more members as needed
   ];
 
