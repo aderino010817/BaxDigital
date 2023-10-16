@@ -14,10 +14,17 @@ export default function WebServices() {
         <Box mt={'15px'} mb={'3em'}>
             <Center>
                 <Flex flexDirection={'column'}>
-                    <Center fontStyle={'oblique'}>
-                        <Heading> Jasa Pembuatan Website Terbaik </Heading>
+                    <Center fontStyle={'oblique'} textAlign={'center'}>
+                        <Heading fontSize={{
+                            base: '2xl',
+                            lg: '4xl'
+                        }}> Jasa Pembuatan Website Terbaik </Heading>
                     </Center>
-                    <Box maxW={"60em"} mt={'1em'} textAlign={'center'}>
+                    <Box maxW={"60em"} mt={'1.3em'} textAlign={'center'}
+                    fontSize={{
+                        base: '14px',
+                        lg: '20px'
+                    }}>
                         <Text>
                             Bax Digital adalah mitra terpercaya Anda dalam menghadirkan keindahan dan efisiensi bagi bisnis Anda melalui dunia digital. Sebagai tim Web Developer Professional, kami siap membantu Anda menghadirkan website yang tidak hanya menarik, tetapi juga efisien dan ramah pengguna.
                         </Text>
@@ -32,7 +39,11 @@ export default function WebServices() {
                 width="100%"
                 justifyContent="center"
             >
-                <Center gap={'2em'} display={{ base: 'grid', lg: 'flex'}} textAlign={'center'} alignContent={'center'} alignSelf={'center'} alignItems={'center'}>
+                <Center gap={{
+                    base: '1em',
+                    lg: '2em',
+                    md: '1em'
+                }} display={{ base: 'grid', lg: 'flex'}} textAlign={'center'} alignContent={'center'} alignSelf={'center'} alignItems={'center'}>
                     <Box flex="1">
                         <Link to='/'>
                             <Button textAlign="center" bgColor={'#319795'} color={'white'}
@@ -41,6 +52,10 @@ export default function WebServices() {
                                 color: 'white',
                                 border: '1px solid gray',
                                 boxShadow: '1px 1px 5px 1px gray'
+                            }}
+                            fontSize={{
+                                base: '14px',
+                                lg: '16px'
                             }}>
                                     FullStack Web-Development
                             </Button>
@@ -54,6 +69,10 @@ export default function WebServices() {
                                 color: 'white',
                                 border: '1px solid gray',
                                 boxShadow: '1px 1px 5px 1px gray'
+                            }}
+                            fontSize={{
+                                base: '14px',
+                                lg: '16px'
                             }}>
                                     Wordpress Web-Builder
                             </Button>
@@ -81,14 +100,31 @@ export default function WebServices() {
                         boxShadow: '3px 3px 10px 3px gray'
                     }}>
                         <Box>
-                            <Text fontSize={'24px'} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 1 : Wordpress</Text>
+                            <Text fontSize={{
+                                base: '19px',
+                                lg: '24px'
+                            }} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 1 :<br/> Web-Wordpress</Text>
                         </Box>
                         <Center textAlign={'center'}>
-                            <Text fontWeight={'bold'} fontSize={'20px'}>Rp 1.499.000,-/</Text>
+                            <Text fontWeight={'bold'} fontSize={{
+                                base: '16px',
+                                lg: '20px'}}>Rp 1.499.000,-/</Text>
                             <Text fontWeight={'semibold'} fontStyle={'oblique'} fontSize={'16'}>Tahun</Text>
                         </Center>
                         <Divider />
-                        <List spacing={2} pl={4} mt={3} mb={3}>
+                        <List spacing={{
+                            base: '1',
+                            lg: '2'
+                        }} pl={{
+                            base: '1',
+                            lg: '4'
+                        }} mt={{
+                            base: '2',
+                            lg: '3'
+                        }} mb={{
+                            base: '1',
+                            lg: '3'
+                        }}>
                             <ListItem>
                             <CheckIcon color="green.500" /> 5 Halaman
                             </ListItem>
@@ -119,14 +155,31 @@ export default function WebServices() {
                         boxShadow: '3px 3px 10px 3px gray'
                     }}>
                         <Box>
-                            <Text fontSize={'24px'} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 2 : Toko Online Wordpress</Text>
+                        <Text fontSize={{
+                                base: '19px',
+                                lg: '24px'
+                            }} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 2 :<br/> Toko Online Wordpress</Text>
                         </Box>
                         <Center textAlign={'center'}>
-                            <Text fontWeight={'bold'} fontSize={'20px'}>Rp 2.499.000,-/</Text>
+                        <Text fontWeight={'bold'} fontSize={{
+                                base: '16px',
+                                lg: '20px'}}>Rp 2.499.000,-/</Text>
                             <Text fontWeight={'semibold'} fontStyle={'oblique'} fontSize={'16'}>Tahun</Text>
                         </Center>
                         <Divider />
-                        <List spacing={2} pl={4} mt={3} mb={3}>
+                        <List spacing={{
+                            base: '1',
+                            lg: '2'
+                        }} pl={{
+                            base: '1',
+                            lg: '4'
+                        }} mt={{
+                            base: '2',
+                            lg: '3'
+                        }} mb={{
+                            base: '1',
+                            lg: '3'
+                        }}>
                             <ListItem>
                             <CheckIcon color="green.500" /> 8 Hari Pengerjaan
                             </ListItem>
@@ -143,9 +196,6 @@ export default function WebServices() {
                             <CheckIcon color="green.500" /> GRATIS! DOMAIN .COM/CO.ID
                             </ListItem>
                             <ListItem>
-                            <CheckIcon color="green.500" /> GRATIS! AKSES CPANEL
-                            </ListItem>
-                            <ListItem>
                             <CheckIcon color="green.500" /> Mobile Friendly
                             </ListItem>
                         </List>
@@ -157,13 +207,30 @@ export default function WebServices() {
                         boxShadow: '3px 3px 10px 3px gray'
                     }}>
                         <Box>
-                            <Text fontSize={'24px'} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 3 : Full Web-Development</Text>
+                        <Text fontSize={{
+                                base: '19px',
+                                lg: '24px'
+                            }} fontStyle={'italic'} fontFamily={'fantasy'} color={'blue'}>Plan 3 :<br /> Full Web-Development</Text>
                         </Box>
                         <Center textAlign={'center'}>
-                            <Text fontWeight={'bold'} fontSize={'20px'}>Negotiable</Text>
+                        <Text fontWeight={'bold'} fontSize={{
+                                base: '16px',
+                                lg: '20px'}}>Negotiable</Text>
                         </Center>
                         <Divider />
-                        <List spacing={2} pl={4} mt={3} mb={3}>
+                        <List spacing={{
+                            base: '1',
+                            lg: '2'
+                        }} pl={{
+                            base: '1',
+                            lg: '4'
+                        }} mt={{
+                            base: '2',
+                            lg: '3'
+                        }} mb={{
+                            base: '1',
+                            lg: '3'
+                        }}>
                             <ListItem>
                             <CheckIcon color="green.500" /> React
                             </ListItem>
