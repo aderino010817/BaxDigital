@@ -15,7 +15,13 @@ export default function Home() {
         <Center >
             <Flex flexDirection={'column'} alignItems="center">
               <Box mb={4}>
-                <Image src={logoBaxTP} w={'20em'} h="auto" bgColor={'white'} borderRadius={'13px'} _hover={{
+                <Image src={logoBaxTP} w={{
+                  base: '10em',
+                  lg: '20em'
+                }} h="auto" bgColor={'white'} borderRadius={{
+                  base: '10px',
+                  lg: '12px'
+                }} _hover={{
               border: '1px solid gray',
               boxShadow: '2px 2px 4px 2px gray'
             }}/>
@@ -23,14 +29,20 @@ export default function Home() {
               <Box textAlign={'center'}>
                 <Text style={{
                   textShadow: "1px 1px 1px black"}} 
-                  fontSize={'3xl'} 
+                  fontSize={{
+                    base: '2xl',
+                    lg: '3xl'
+                  }} 
                   fontFamily={'sans-serif'} 
                   fontWeight={'bold'} 
                   color="teal.500"
                   >
                     Keajaiban Digital Dimulai di Sini!
                 </Text>
-                <Text maxW={'60em'} fontSize="lg" mt={4}>
+                <Text maxW={'60em'} fontSize={{
+                  base: '14px',
+                  lg: '18px'
+                }} mt={4}>
                 BAX Digital adalah tempat di mana kreativitas bertemu teknologi! Kami adalah pakar Fullstack digital, menciptakan situs web menggunakan CMS Wordpress dan teknologi terdepan seperti Golang, React-Express, dan banyak lagi. <br />Jangan lewatkan kesempatan belajar di kelas Digital kami. Temui rahasia di balik kesuksesan digital marketing: Ads pintar, Bot Automasi cerdas, dan Pembuatan LandingPage yang memukau dengan Wordpress.
                 </Text>
               </Box>
