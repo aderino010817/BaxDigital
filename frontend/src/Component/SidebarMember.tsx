@@ -1,5 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Box, Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
+"use client";
+
+import {
+  Box,
+  BoxProps,
+  CloseButton,
+  Drawer,
+  DrawerContent,
+  Flex,
+  FlexProps,
+  Icon,
+  IconButton,
+  Image,
+  Text,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { ReactText } from "react";
 import { IconType } from "react-icons";
 import {
@@ -11,6 +26,7 @@ import {
   FiHome,
   FiLifeBuoy,
   FiLogOut,
+  FiMenu,
   FiSettings,
   FiUsers
 } from "react-icons/fi";
@@ -20,7 +36,6 @@ interface LinkItemProps {
   name: string;
   icon: IconType;
 }
-
 const LinkItems: Array<LinkItemProps> = [
   { name: "Dashboard", icon: FiHome },
   { name: "My Network", icon: FiUsers },
@@ -34,21 +49,47 @@ const LinkItems: Array<LinkItemProps> = [
   { name: "Logout", icon: FiLogOut }
 ];
 
-interface SidebarProps {
-  children?: React.ReactNode;
+export default function SimpleSidebar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+      <SidebarContent
+        onClose={() => onClose}
+        display={{ base: "none", md: "block" }}
+      />
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
+      {/* mobilenav */}
+      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+      <Box ml={{ base: 0, md: 60 }} p="4">
+        {/* Content */}
+      </Box>
+    </Box>
+  );
 }
 
-const MemberSidebar = ({ children }: SidebarProps) => {
+interface SidebarProps extends BoxProps {
+  onClose: () => void;
+}
+
+const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
-    <Flex
+    <Box
       bg={useColorModeValue("white", "gray.900")}
       w={{ base: "100%", md: 60 }}
       pos="fixed"
       h="full"
-      borderRightWidth="1px"
-      borderColor={useColorModeValue("gray.200", "gray.700")}
-      flexDirection="column"
-      boxShadow={'2px 2px 5px 2px gray'}
+      {...rest}
     >
       <Flex
         h="20"
@@ -76,17 +117,22 @@ const MemberSidebar = ({ children }: SidebarProps) => {
           <Text>BAX DIGITAL</Text>
           <Text>INDONESIA</Text>
         </Box>
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
       ))}
-    </Flex>
+    </Box>
   );
 };
 
-const NavItem = ({ icon, children }: { icon: IconType; children: ReactText }) => {
+interface NavItemProps extends FlexProps {
+  icon: IconType;
+  children: ReactText;
+}
+const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   return (
     <Box
       as="a"
@@ -105,6 +151,7 @@ const NavItem = ({ icon, children }: { icon: IconType; children: ReactText }) =>
           bg: "cyan.400",
           color: "white",
         }}
+        {...rest}
       >
         {icon && (
           <Icon
@@ -122,4 +169,28 @@ const NavItem = ({ icon, children }: { icon: IconType; children: ReactText }) =>
   );
 };
 
-export default MemberSidebar;
+interface MobileProps extends FlexProps {
+  onOpen: () => void;
+}
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 24 }}
+      height="20"
+      alignItems="center"
+      bg={useColorModeValue("white", "gray.900")}
+      borderBottomWidth="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent="flex-start"
+      {...rest}
+    >
+      <IconButton
+        variant="outline"
+        onClick={onOpen}
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
+    </Flex>
+  );
+};
