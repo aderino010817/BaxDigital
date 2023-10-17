@@ -86,11 +86,13 @@ export default function Navbar() {
             </Button>
               </MenuButton>
               <MenuList border={'1px solid gray.500'} boxShadow={'1px 1px 3px 1px gray'}>
+                <Link to={'/Member'}>
                 <MenuItem
                 _hover={{
                     color: 'white',
                     bg: 'gray'
                 }}>Register</MenuItem>
+                </Link>
                 <Link to={'/Admin'}>
                 <MenuItem
                 _hover={{
