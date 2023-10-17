@@ -1,53 +1,190 @@
-import { Box, Center, Icon, Text, VStack } from "@chakra-ui/react";
-import { FaEnvelope, FaNewspaper, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+"use client";
 
-export default function SidebarAdmin() {
+import {
+  Box,
+  BoxProps,
+  CloseButton,
+  Drawer,
+  DrawerContent,
+  Flex,
+  FlexProps,
+  Icon,
+  IconButton,
+  Image,
+  Text,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { ReactText } from "react";
+import { IconType } from "react-icons";
+import {
+  FiBell,
+  FiBookOpen,
+  FiFileText,
+  FiHome,
+  FiLifeBuoy,
+  FiLogOut,
+  FiMenu,
+  FiUsers
+} from "react-icons/fi";
+import LogoBax from "./Image/LogoBax.png";
+
+interface LinkItemProps {
+  name: string;
+  icon: IconType;
+}
+const LinkItems: Array<LinkItemProps> = [
+  { name: "Dashboard", icon: FiHome },
+  { name: "Members", icon: FiUsers },
+  { name: "Marketing Kit", icon: FiFileText },
+  { name: "Courses", icon: FiBookOpen },
+  { name: "Member-Help", icon: FiLifeBuoy },
+  { name: "Post-News", icon: FiBell },
+  { name: "Log-Out", icon: FiLogOut },
+];
+
+export default function SimpleSidebar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box p={{
-      base: '1',
-      md: '2',
-      lg: '3'
-    }} bg="gray.200" h="100vh"
-    w={{
-      base: '5em',
-      md: '10em',
-      lg: '10em'
-    }} border={'1px solid gray'} boxShadow={'2px 2px 5px 2px gray'}>
-          <Center textAlign={'center'}>
-      <VStack spacing="3em" align="start">
-        <Link to="/admin/members">
-          <Box display="flex" alignItems="center" mt={'5'}>
-            <Icon as={FaUser}/>
-            <Text display={{
-              base: 'none',
-              md: 'flex',
-              lg: 'flex'
-            }}>Members</Text>
-          </Box>
-        </Link>
-        <Link to="/admin/messages">
-          <Box display="flex" alignItems="center">
-            <Icon as={FaEnvelope} />
-            <Text display={{
-              base: 'none',
-              md: 'flex',
-              lg: 'flex'
-            }}>Messages</Text>
-          </Box>
-        </Link>
-        <Link to="/admin/posts">
-          <Box display="flex" alignItems="center">
-            <Icon as={FaNewspaper} />
-            <Text display={{
-              base: 'none',
-              md: 'flex',
-              lg: 'flex'
-            }}>Posts</Text>
-          </Box>
-        </Link>
-      </VStack>
-      </Center>
+    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+      <SidebarContent
+        onClose={() => onClose}
+        display={{ base: "none", md: "block" }}
+      />
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        returnFocusOnClose={false}
+        onOverlayClick={onClose}
+        size="full"
+      >
+        <DrawerContent>
+          <SidebarContent onClose={onClose} />
+        </DrawerContent>
+      </Drawer>
+      {/* mobilenav */}
+      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+      <Box ml={{ base: 0, md: 60 }} p="4">
+        {/* Content */}
+      </Box>
     </Box>
   );
 }
+
+interface SidebarProps extends BoxProps {
+  onClose: () => void;
+}
+
+const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  return (
+    <Box
+      bg={useColorModeValue("white", "gray.900")}
+      w={{ base: "100%", md: 60 }}
+      pos="fixed"
+      h="full"
+      {...rest}
+    >
+      <Flex
+        h="20"
+        alignItems="center"
+        mx="8"
+        justifyContent="center"
+        mt="5"
+        mb={"5"}
+        boxShadow={'1px 1px 2px 1px gray'}
+        _hover={{ boxShadow: "2px 2px 6px 2px gray" }}
+        borderRadius={'5px'}
+      >
+        <Box>
+          <Image
+            src={LogoBax}
+            maxW={"40px"}
+            mr={{
+              base: "1em",
+              md: "1em",
+              lg: "1em",
+            }}
+          />
+        </Box>
+        <Box display={"flex"} flexDirection={"column"} textAlign={"center"}>
+          <Text>BAX DIGITAL</Text>
+          <Text>INDONESIA</Text>
+        </Box>
+        <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
+      </Flex>
+      {LinkItems.map((link) => (
+        <NavItem key={link.name} icon={link.icon}>
+          {link.name}
+        </NavItem>
+      ))}
+    </Box>
+  );
+};
+
+interface NavItemProps extends FlexProps {
+  icon: IconType;
+  children: ReactText;
+}
+const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+  return (
+    <Box
+      as="a"
+      href="#"
+      style={{ textDecoration: "none" }}
+      _focus={{ boxShadow: "none" }}
+    >
+      <Flex
+        align="center"
+        p="4"
+        mx="4"
+        borderRadius="lg"
+        role="group"
+        cursor="pointer"
+        _hover={{
+          bg: "cyan.400",
+          color: "white",
+        }}
+        {...rest}
+      >
+        {icon && (
+          <Icon
+            mr="4"
+            fontSize="16"
+            _groupHover={{
+              color: "white",
+            }}
+            as={icon}
+          />
+        )}
+        {children}
+      </Flex>
+    </Box>
+  );
+};
+
+interface MobileProps extends FlexProps {
+  onOpen: () => void;
+}
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  return (
+    <Flex
+      ml={{ base: 0, md: 60 }}
+      px={{ base: 4, md: 24 }}
+      height="20"
+      alignItems="center"
+      bg={useColorModeValue("white", "gray.900")}
+      borderBottomWidth="1px"
+      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      justifyContent="flex-start"
+      {...rest}
+    >
+      <IconButton
+        variant="outline"
+        onClick={onOpen}
+        aria-label="open menu"
+        icon={<FiMenu />}
+      />
+    </Flex>
+  );
+};

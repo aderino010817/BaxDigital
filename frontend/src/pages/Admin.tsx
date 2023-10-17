@@ -1,46 +1,73 @@
-import { Box, Flex, Text, Heading, List, ListItem } from "@chakra-ui/react";
-import SidebarAdmin from "../assets/SidebarAdmin";
+import { Badge, Box, Flex, Heading, List, ListItem, Text } from "@chakra-ui/react";
+import { FaChartBar, FaTrophy } from "react-icons/fa";
 import Footer from "../Component/Footer";
-import Navbar from "../Component/Navbar";
+import SidebarContent from "../assets/SidebarAdmin";
 
-export default function AdminDashboard() {
-  // Dummy data for member list (replace this with actual data)
-  const memberList = [
-    { id: 1, name: "John Doe", status: "Active", joinedDate: "2023-01-15" },
-    { id: 2, name: "Alice Johnson", status: "Not-Active", joinedDate: "2023-03-20" },
-    // Add more members as needed
+const AdminDashboard = () => {
+  const downlineMembers = [
+    { id: 1, name: "Sarah Smith", level: 1, totalSales: "$5000" },
+    { id: 2, name: "Michael Johnson", level: 2, totalSales: "$3000" },
+    // Add more downline members as needed
   ];
 
-  // Function to sort members by join date (newest to oldest)
-  const sortedMembers = memberList.sort((a, b) => new Date(b.joinedDate).getTime() - new Date(a.joinedDate).getTime());
+  const topPerformers = [
+    { id: 1, name: "Alice Adams", totalSales: "$8000" },
+    { id: 2, name: "John Brown", totalSales: "$7000" },
+    // Add more top performers as needed
+  ];
 
   return (
-    <>
-      <Box>
-        <Navbar />
+    <Flex>
+      <Box w={'14%'}>
+        <SidebarContent />
       </Box>
-      <Flex>
-        <Box w="20%">
-          <SidebarAdmin />
-        </Box>
-        <Box w="80%" mt={"20px"} p={'3'}>
-          <Heading mb="4">Admin Dashboard</Heading>
-          <Text fontSize="lg" mb="4">List Member (Newest to Oldest):</Text> 
+      <Box w="80%" mt={"20px"} p={'3'} >
+        <Heading mb="4">Welcome to Admin Dashboard</Heading>
+        <Box mb="4">
+          <Heading fontSize="lg" mb="2">Top Performers:</Heading>
           <List spacing={3}>
-            {sortedMembers.map((member) => (
-              <ListItem key={member.id}>
+            {topPerformers.map((performer) => (
+              <ListItem key={performer.id} p={2} borderRadius={8} bg="white" boxShadow="md">
                 <Flex justify="space-between" align="center">
-                  <Text>{member.name}</Text>
-                  <Text>Status: {member.status}</Text>
+                  <Text>{performer.name}</Text>
+                  <Text>Total Sales: {performer.totalSales}</Text>
+                  <Badge colorScheme="green" fontSize="sm">
+                    <FaTrophy style={{ marginRight: '0.2em' }} /> Top Performer
+                  </Badge>
                 </Flex>
               </ListItem>
             ))}
           </List>
         </Box>
-      </Flex>
-      <Box mt="100px">
-        <Footer />
+        <Box>
+          <Heading fontSize="lg" mb="2">Your Downline Members:</Heading>
+          <List spacing={3}>
+            {downlineMembers.map((member) => (
+              <ListItem key={member.id} p={2} borderRadius={8} bg="white" boxShadow="md">
+                <Flex justify="space-between" align="center">
+                  <Text>{member.name}</Text>
+                  <Text>Level: {member.level}</Text>
+                  <Text>Total Sales: {member.totalSales}</Text>
+                  {member.level === 1 && <Badge colorScheme="green" fontSize="sm">
+                    <FaChartBar style={{ marginRight: '0.2em' }} /> Level 1
+                  </Badge>}
+                  {member.level === 2 && <Badge colorScheme="blue" fontSize="sm">
+                    <FaChartBar style={{ marginRight: '0.2em' }} /> Level 2
+                  </Badge>}
+                  {member.level > 2 && <Badge colorScheme="gray" fontSize="sm">
+                    <FaChartBar style={{ marginRight: '0.2em' }} /> Level {member.level}
+                  </Badge>}
+                </Flex>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Box mt="100px">
+          <Footer />
+        </Box>
       </Box>
-    </>
+    </Flex>
   );
 }
+
+export default AdminDashboard;
