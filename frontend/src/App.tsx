@@ -6,7 +6,7 @@ import ContactUs from "./pages/ContactUs";
 import KelasDigital from "./pages/KelasDigital";
 import MemberDashboard from "./pages/Member";
 import WebServices from "./pages/WebServices";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import Tester from "./pages/tester";
 // import { Routes }  from "react-router-dom";
 
