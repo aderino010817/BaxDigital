@@ -1,14 +1,6 @@
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Input,
-  Text,
-  Textarea,
-} from "@chakra-ui/react";
-import Footer from "../Component/Footer";
-import Navbar from "../Component/Navbar";
+import { Box, Button, Center, Heading, Input, Text, Textarea } from "@chakra-ui/react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 export default function ContactUs() {
   return (
@@ -47,20 +39,13 @@ export default function ContactUs() {
                   lg: "lg",
                 }}
               >
-                Kami siap membantu Anda! Silakan hubungi kami melalui formulir
-                di bawah ini.
+                Kami siap membantu Anda! Silakan hubungi kami melalui formulir di bawah ini.
               </Text>
             </Box>
           </Center>
         </Box>
         <Center>
-          <Box
-            width="80%"
-            p="4"
-            boxShadow={"2px 2px 6px 2px gray"}
-            borderRadius="md"
-            bg="white"
-          >
+          <Box width="80%" p="4" boxShadow={"2px 2px 6px 2px gray"} borderRadius="md" bg="white">
             <Box mb={3}>
               <Text
                 fontSize={{

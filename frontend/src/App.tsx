@@ -7,6 +7,7 @@ import KelasDigital from "./pages/KelasDigital";
 import MemberDashboard from "./pages/Member";
 import WebServices from "./pages/WebServices";
 import Home from "./pages/home";
+import Tester from "./pages/tester";
 // import { Routes }  from "react-router-dom";
 
 // function IsLogin() {
@@ -36,10 +37,8 @@ function App() {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Admin" element={<AdminDashboard />} />
         <Route path="/Member" element={<MemberDashboard />} />
-        <Route
-          path="/Member/MyNetwork"
-          element={<MyNetwork downlineMembers={[]} />}
-        />
+        <Route path="/tester" element={<Tester />} />
+        <Route path="/Member/MyNetwork" element={<MyNetwork downlineMembers={[]} />} />
       </Routes>
     </>
   );
